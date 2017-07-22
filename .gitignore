@@ -1,6 +1,17 @@
+# CMake Files
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
 Makefile
 cmake_install.cmake
 install_manifest.txt
+
+# Editor settings
+.vscode/
+.vs/
+
+# Recommended build directory
+build/
+
+# Temp Files
+*.autosave
