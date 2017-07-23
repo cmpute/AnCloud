@@ -19,10 +19,6 @@ public:
   explicit acMainWindow(QWidget *parent = 0);
   ~acMainWindow();
 
-public slots:
-  virtual void slotOpenFile();
-  virtual void slotExit();
-
 protected:
 
 protected slots:

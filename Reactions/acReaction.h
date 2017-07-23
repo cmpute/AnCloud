@@ -3,6 +3,7 @@
 
 #include <QAction>
 #include <QObject>
+#include <QDebug>
 
 class acReaction : public QObject
 {

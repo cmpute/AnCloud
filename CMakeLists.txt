@@ -23,21 +23,36 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(SRC_FILES
   bootstrap.cxx
+  Components/Toolbars/acMainToolbar.cxx
   Components/acMainWindow.cxx
+  Components/acMenuBuilders.cxx
+  Reactions/acLoadDataReaction.cxx
   Reactions/acReaction.cxx
+  Reactions/acSaveDataReaction.cxx
+  Reactions/acUndoRedoReaction.cxx
 )
 
 set(HDR_FILES
   macros.h
+  Components/acMenuBuilders.h
 )
 
 set(MOC_HDRS_FILES
+  Components/Toolbars/acMainToolbar.h
   Components/acMainWindow.h
+  Reactions/acLoadDataReaction.h
   Reactions/acReaction.h
+  Reactions/acSaveDataReaction.h
+  Reactions/acUndoRedoReaction.h
 )
 
 set(UI_FILES
+  Components/Views/acEditMenu.ui
+  Components/Views/acFileMenu.ui
+  Components/Views/acHelpMenu.ui
+  Components/Views/acMainToolbar.ui
   Components/Views/acMainWindow.ui
+  Components/Views/acViewMenu.ui
 )
 
 set(QRC_FILES

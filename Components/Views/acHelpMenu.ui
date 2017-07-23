@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>acHelpMenu</class>
+ <widget class="QMenu" name="acHelpMenu">
+  <property name="title">
+   <string>&amp;Help</string>
+  </property>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About...</string>
+   </property>
+  </action>
+  <addaction name="actionAbout"/>
+ </widget>
+ <resources>
+  <include location="../../Resources/Icons/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

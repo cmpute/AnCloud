@@ -11,17 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SimpleView</string>
+   <string>AnCloud</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../../Resources/Icons/icons.qrc">
     <normaloff>:/Icons/AppIcon128.png</normaloff>:/Icons/AppIcon128.png</iconset>
-  </property>
-  <property name="iconSize">
-   <size>
-    <width>22</width>
-    <height>22</height>
-   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -67,7 +61,7 @@
         </property>
        </layout>
       </widget>
-      <widget class="QVTKWidget" name="qvtkWidget" native="true">
+      <widget class="QVTKWidget" name="qvtkWidget">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>1</horstretch>
@@ -98,12 +92,16 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpenFile"/>
-    <addaction name="actionSave"/>
-    <addaction name="separator"/>
-    <addaction name="actionPrint"/>
-    <addaction name="actionHelp"/>
-    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -111,10 +109,12 @@
     </property>
    </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuViews"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="acMainToolbar" name="mainToolBar">
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
@@ -130,56 +130,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionOpenFile"/>
-   <addaction name="actionSave"/>
-   <addaction name="separator"/>
-   <addaction name="actionPrint"/>
-   <addaction name="actionHelp"/>
   </widget>
-  <action name="actionOpenFile">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
-     <normaloff>:/Icons/fileopen.png</normaloff>:/Icons/fileopen.png</iconset>
-   </property>
-   <property name="text">
-    <string>Open File...</string>
-   </property>
-  </action>
-  <action name="actionExit">
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </action>
-  <action name="actionPrint">
-   <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
-     <normaloff>:/Icons/print.png</normaloff>:/Icons/print.png</iconset>
-   </property>
-   <property name="text">
-    <string>Print</string>
-   </property>
-  </action>
-  <action name="actionHelp">
-   <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
-     <normaloff>:/Icons/help.png</normaloff>:/Icons/help.png</iconset>
-   </property>
-   <property name="text">
-    <string>Help</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
-     <normaloff>:/Icons/filesave.png</normaloff>:/Icons/filesave.png</iconset>
-   </property>
-   <property name="text">
-    <string>Save</string>
-   </property>
-  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -187,10 +138,14 @@
    <extends>QWidget</extends>
    <header>QVTKWidget.h</header>
   </customwidget>
+  <customwidget>
+   <class>acMainToolbar</class>
+   <extends>QToolBar</extends>
+   <header location="global">Components/Toolbars/acMainToolbar.h</header>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="../../Resources/Icons/icons.qrc"/>
-  <include location="Icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -10,6 +10,7 @@
 #include <vtkVectorText.h>
 
 #include "../macros.h"
+#include "acMenuBuilders.h"
 
 acMainWindow::acMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -58,23 +59,14 @@ acMainWindow::acMainWindow(QWidget *parent) :
     // Here we take the end of the VTK pipeline and give it to a Qt View
     this->TableView->SetRepresentationFromInputConnection(toTable->GetOutputPort());
 
-    // Set up action signals and slots
-    connect(this->ui->actionOpenFile, SIGNAL(triggered()), this, SLOT(slotOpenFile()));
-    connect(this->ui->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
-
+    // Setup menus
+    acMainMenuBuilder::buildFileMenu(*this->ui->menuFile);
+    acMainMenuBuilder::buildEditMenu(*this->ui->menuEdit);
+    acMainMenuBuilder::buildViewMenu(*this->ui->menuView);
+    acMainMenuBuilder::buildHelpMenu(*this->ui->menuHelp);
 };
 
 acMainWindow::~acMainWindow()
 {
 	delete this->ui;
-}
-
-// Action to be taken upon file open
-void acMainWindow::slotOpenFile()
-{
-}
-
-void acMainWindow::slotExit()
-{
-    qApp->exit();
 }

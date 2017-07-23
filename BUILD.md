@@ -11,7 +11,10 @@
 ## VTK
 1. Download source code from http://www.vtk.org/download/
 1. Open CMake(CLI/GUI) and generate project
-1. Options: XXXXXX
+1. Supplemental Options:
+    - BUILD_SHARE_LIBS : On
+    - Vtk_Group_Qt : On
+    - VTK_QT_VERSION : 5
 1. Build in **Release** mode.
 1. Install in certain directory.
 ## Build

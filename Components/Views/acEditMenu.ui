@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>acEditMenu</class>
+ <widget class="QMenu" name="acEditMenu">
+  <property name="title">
+   <string>&amp;Edit</string>
+  </property>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <addaction name="actionUndo"/>
+  <addaction name="actionRedo"/>
+ </widget>
+ <resources>
+  <include location="../../Resources/Icons/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
