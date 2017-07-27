@@ -27,7 +27,7 @@ if (WIN32)
   set(AC_INSTALL_LIBRARY_DIR bin)
 else()
   set(AC_INSTALL_LIBRARY_DIR
-    lib/veloview-${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR})
+    lib/ancloud-${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR})
 endif()
 
 # -------------------------------------------------------------------------------------------------
@@ -36,7 +36,6 @@ endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(SRC_FILES
-  bootstrap.cxx
   Components/Toolbars/acMainToolbar.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
@@ -47,7 +46,6 @@ set(SRC_FILES
 )
 
 set(HDR_FILES
-  macros.h
   Components/acMenuBuilders.h
 )
 
@@ -78,8 +76,8 @@ set(QRC_FILES
 
 option(BUILD_SHARED_LIBS "Build shared libs" ON)
 # ParaView 5.x does not support build development installing currently
-option(USE_EXTERNAL_VTK "Using external VTK installation" OFF)
-option(USE_EXTERNAL_ParaView "Using external ParaView installation" OFF)
+# option(USE_EXTERNAL_VTK "Using external VTK installation" OFF)
+option(USE_EXTERNAL_ParaView "Using external ParaView installation" ON)
 option(USE_EXTERNAL_Qt "Using external Qt installation" ON)
 
 # -------------------------------------------------------------------------------------------------
@@ -101,6 +99,8 @@ if(USE_EXTERNAL_ParaView)
 
   include(${PARAVIEW_USE_FILE})
 else()
+  # TODO: This part is not completed, need to figure out how to build ParaView in place.
+
   # Set CMake module path
   set (PARAVIEW_CMAKE_DIR ${AnCloud_SOURCE_DIR}/ParaView/CMake)
 
@@ -138,10 +138,11 @@ else()
   set (PARAVIEW_BUILD_PLUGIN_VRPlugin OFF CACHE INTERNAL "")
   set (PARAVIEW_BUILD_PLUGIN_VaporPlugin OFF CACHE INTERNAL "")
   set (VTK_USE_VIDEO_FOR_WINDOWS OFF CACHE INTERNAL "")
+
+  include (${PARAVIEW_CMAKE_DIR}/UseParaView.cmake)
 endif()
 # Update CMAKE_MODULE_PATH to include Paraview's cmake files.
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PARAVIEW_CMAKE_DIR})
-include (${PARAVIEW_CMAKE_DIR}/UseParaView.cmake)
 
 # Instruct CMake to run moc automatically when needed.
 set(CMAKE_AUTOMOC ON)
@@ -168,7 +169,7 @@ source_group("Generated" FILES
 # -------------------------------------------------------------------------------------------------
 # Compiling
 
-build_paraview_client(VeloView
+build_paraview_client(AnCloud
   TITLE "AnCloud"
   ORGANIZATION "Tsinghua University"
   VERSION_MAJOR ${PROJECT_VERSION_MAJOR}
@@ -176,9 +177,9 @@ build_paraview_client(VeloView
   VERSION_PATCH ${PROJECT_VERSION_PATCH}
   PVMAIN_WINDOW acMainWindow
   PVMAIN_WINDOW_INCLUDE Components/acMainWindow.h
-  SPLASH_IMAGE "${CMAKE_CURRENT_SOURCE_DIR}/Splash.jpg"
-  BUNDLE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/AppIcon.icns"
-  APPLICATION_ICON "${CMAKE_CURRENT_SOURCE_DIR}/AppIcon.ico"
+  SPLASH_IMAGE "${CMAKE_CURRENT_SOURCE_DIR}/Resources/Splash.jpg"
+  BUNDLE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/Resources/AppIcon.icns"
+  APPLICATION_ICON "${CMAKE_CURRENT_SOURCE_DIR}/Resources/AppIcon.ico"
   SOURCES
     ${SRC_FILES}
     ${HDR_FILES}
@@ -192,5 +193,7 @@ build_paraview_client(VeloView
 # add_executable(AnCloud WIN32
 #   ${SRC_FILES} ${HDR_FILES} ${UI_Srcs} ${MOC_HDRS_FILES} ${QRC_Srcs})
 # qt5_use_modules(AnCloud Widgets)
+# target_link_libraries(AnCloud ${VTK_LIBRARIES})
 
-target_link_libraries(AnCloud ${PARAVIEW_LIBRARIES})
+target_link_libraries(AnCloud
+  LINK_PRIVATE vtkPVClientServerCoreRendering) #${PARAVIEW_DEFAULT_VTK_MODULES}
