@@ -1,27 +1,31 @@
 #ifndef acLoadDataReaction_h
 #define acLoadDataReaction_h
 
+#include "pqLoadDataReaction.h"
 #include "acReaction.h"
 
 /**
  * Reaction for opening data files
  */
-class acLoadDataReaction : public acReaction
+class acLoadDataReaction : public pqLoadDataReaction
 {
     Q_OBJECT
-    typedef acReaction Superclass;
+    typedef pqLoadDataReaction Superclass;
 
 public:
     acLoadDataReaction(QAction *parent);
 
-signals:
-    void loadedData();
+	static pqPipelineSource* loadData();
+
+//signals void loadedData(source) inherited.
 
 protected:
     virtual void onTriggered()
     {
         qDebug() << "[Open] Triggered!";
-        // TODO: Not Implemented
+		pqPipelineSource *source = acLoadDataReaction::loadData();
+		if (source)
+			emit this->loadedData(source);
     }
 
 private:

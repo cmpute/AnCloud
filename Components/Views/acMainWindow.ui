@@ -70,12 +70,57 @@
     <bool>false</bool>
    </attribute>
   </widget>
+  <widget class="QDockWidget" name="selectionViewDock">
+   <property name="windowTitle">
+    <string>Selection View</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="acSelectionViewWidget" name="selectionView"/>
+  </widget>
+  <widget class="QDockWidget" name="selectionInfoDock">
+   <property name="windowTitle">
+    <string>Selection Information</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="acSelectionInfoWidget" name="selectionInfo"/>
+  </widget>
+  <widget class="QDockWidget" name="labelViewDock">
+   <property name="windowTitle">
+    <string>Label List</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="acLabelViewWidget" name="labelView"/>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
    <class>acMainToolbar</class>
    <extends>QToolBar</extends>
-   <header location="global">Components/Toolbars/acMainToolbar.h</header>
+   <header>Components/Toolbars/acMainToolbar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>acSelectionInfoWidget</class>
+   <extends>QWidget</extends>
+   <header>Components/Widgets/acSelectionInfoWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>acSelectionViewWidget</class>
+   <extends>QWidget</extends>
+   <header>Components/Widgets/acSelectionViewWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>acLabelViewWidget</class>
+   <extends>QWidget</extends>
+   <header>Components/Widgets/acLabelViewWidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

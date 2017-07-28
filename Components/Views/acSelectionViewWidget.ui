@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>acSelectionViewWidget</class>
+ <widget class="QWidget" name="acSelectionViewWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <!-- <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property> -->
+  <property name="windowTitle">
+   <string>Selection Operation</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+   <property name="spacing">
+    <number>1</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="TitleBar" native="true">
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
+     <layout class="QHBoxLayout" name="TitleBarLayout">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QToolBar" name="toolbar">
+        <action name="actionAddCurrent">
+         <property name="icon">
+          <iconset resource="../../Resources/Icons/icons.qrc">
+           <normaloff>:/Icons/help.png</normaloff>:/Icons/help.png</iconset>
+         </property>
+         <property name="text">
+          <string>Add Current Selection</string>
+         </property>
+        </action>
+        <action name="actionMerge">
+         <property name="icon">
+          <iconset resource="../../Resources/Icons/icons.qrc">
+           <normaloff>:/Icons/help.png</normaloff>:/Icons/help.png</iconset>
+         </property>
+         <property name="text">
+          <string>Merge Selections</string>
+         </property>
+        </action>
+        <addaction name="actionAddCurrent"/>
+        <addaction name="separator"/>
+        <addaction name="actionMerge"/>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTreeView" name="selectionView"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

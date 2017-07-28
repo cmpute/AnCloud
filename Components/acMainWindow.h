@@ -2,6 +2,7 @@
 #define acMainWindow_h
 
 #include <QMainWindow>
+#include <pqRenderView.h>
 
 // Forward Qt class declarations
 class Ui_acMainWindow;
@@ -19,7 +20,10 @@ protected:
 protected slots:
 
 private:
-  Ui_acMainWindow *ui;
+  Ui_acMainWindow *Ui;
+  pqRenderView *mainView;
+
+  void paraviewInit();
 };
 
 #endif // acMainWindow_h

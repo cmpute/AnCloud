@@ -37,6 +37,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(SRC_FILES
   Components/Toolbars/acMainToolbar.cxx
+  Components/Widgets/acLabelViewWidget.cxx
+  Components/Widgets/acSelectionInfoWidget.cxx
+  Components/Widgets/acSelectionViewWidget.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
   Reactions/acLoadDataReaction.cxx
@@ -51,6 +54,9 @@ set(HDR_FILES
 
 set(MOC_HDRS_FILES
   Components/Toolbars/acMainToolbar.h
+  Components/Widgets/acLabelViewWidget.h
+  Components/Widgets/acSelectionInfoWidget.h
+  Components/Widgets/acSelectionViewWidget.h
   Components/acMainWindow.h
   Reactions/acLoadDataReaction.h
   Reactions/acReaction.h
@@ -64,6 +70,8 @@ set(UI_FILES
   Components/Views/acHelpMenu.ui
   Components/Views/acMainToolbar.ui
   Components/Views/acMainWindow.ui
+  Components/Views/acSelectionInfoWidget.ui
+  Components/Views/acSelectionViewWidget.ui
   Components/Views/acViewMenu.ui
 )
 
