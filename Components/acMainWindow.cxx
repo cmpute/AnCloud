@@ -24,14 +24,16 @@
 #include <pqStandardViewFrameActionsImplementation.h>
 #include <vtkPVPlugin.h>
 #include <vtkSMProxyManager.h>
+#include <vtkSMReaderFactory.h>
 #include <vtkSMSessionProxyManager.h>
 #include <vtkSMPropertyHelper.h>
 #include <QtGlobal>
 
 #include "acMenuBuilders.h"
 
+PV_PLUGIN_IMPORT_INIT(PCDReader);
+
 ///////////// TEST ////////////////
-#include "Core/vtkPCDReader.h"
 #include "vtkActor.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
@@ -47,6 +49,7 @@ acMainWindow::acMainWindow(QWidget *parent) :
 {
     this->Ui->setupUi(this);
 	this->paraviewInit();
+	PV_PLUGIN_IMPORT(PCDReader);
 
     this->setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::North);
 	this->tabifyDockWidget(this->Ui->selectionViewDock, this->Ui->labelViewDock);
@@ -65,6 +68,10 @@ void acMainWindow::paraviewInit()
 	pqApplicationCore *core = pqApplicationCore::instance();
 	// Define application behaviours
 	// TODO: Add behaviours
+
+	// Define supported files
+	vtkSMReaderFactory *readerFactory = vtkSMProxyManager::GetProxyManager()->GetReaderFactory();
+	readerFactory->AddReaderToWhitelist("sources", "PCDReader");
 
 	// Connect to builtin server
 	pqObjectBuilder *builder = core->getObjectBuilder();
@@ -92,6 +99,9 @@ void acMainWindow::paraviewInit()
 
 	// Add to the window
 	this->setCentralWidget(view->widget());
+	pqActiveObjects::instance().setActiveView(view);
+
+	// TODO: Add SpreadSheet View
 
 	///////////////// TEST //////////////////
 

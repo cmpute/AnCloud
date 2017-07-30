@@ -1,0 +1,26 @@
+<ServerManagerConfiguration>
+  <ProxyGroup name="sources">
+    <!-- Start PCDReader -->
+    <SourceProxy name="PCDReader" class="vtkPCDReader" label="PCDReader">
+      <Documentation long_help="Read a PCL Point Cloud Data (PCD) file."
+                     short_help="Read a PCD file.">
+      </Documentation>
+      <StringVectorProperty name="FileName"
+                            animateable="0"
+                            command="SetFileName"
+                            number_of_elements="1">
+        <FileListDomain name="files"/>
+        <Documentation>
+          This property specifies the file name for the PCD reader.
+        </Documentation>
+      </StringVectorProperty>
+ 
+      <Hints>
+        <ReaderFactory extensions="pcd"
+                       file_description="PCL Point Cloud Data File Format" />
+      </Hints>
+    </SourceProxy>
+    <!-- End PCDReader -->
+  </ProxyGroup>
+  <!-- End Filters Group -->
+</ServerManagerConfiguration>

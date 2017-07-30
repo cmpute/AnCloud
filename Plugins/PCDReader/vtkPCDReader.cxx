@@ -5,7 +5,7 @@
 #include "vtkInformationVector.h"
 #include "vtkSmartPointer.h"
 
-#include "vtkPCDReaderRaw.h"
+#include "PCDReaderRaw.h"
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPCDReader);
@@ -38,7 +38,7 @@ int vtkPCDReader::RequestData(
         return 0;
     }
 
-    vtkSmartPointer<vtkPolyData> polyData = vtkPCDReaderRaw::readFile(this->GetFileName());
+    vtkSmartPointer<vtkPolyData> polyData = PCDReaderRaw::readFile(this->GetFileName());
 
     if (!polyData)
     {

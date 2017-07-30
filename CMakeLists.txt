@@ -42,8 +42,6 @@ set(SRC_FILES
   Components/Widgets/acSelectionViewWidget.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
-  Core/vtkPCDReader.cxx
-  Core/vtkPCDReaderRaw.cxx
   Reactions/acLoadDataReaction.cxx
   Reactions/acReaction.cxx
   Reactions/acSaveDataReaction.cxx
@@ -52,8 +50,6 @@ set(SRC_FILES
 
 set(HDR_FILES
   Components/acMenuBuilders.h
-  Core/vtkPCDReader.h
-  Core/vtkPCDReaderRaw.h
 )
 
 set(MOC_HDRS_FILES
@@ -83,10 +79,7 @@ set(QRC_FILES
   Resources/Icons/icons.qrc
 )
 
-set(EXT_Srcs
-  ThirdParty/PCL/io/lzf.h
-  ThirdParty/PCL/io/lzf.cpp
-)
+set(EXT_Srcs)
 
 # -------------------------------------------------------------------------------------------------
 # Options
@@ -188,6 +181,11 @@ source_group("ThirdParty" FILES
 )
 
 # -------------------------------------------------------------------------------------------------
+# Import Plugin
+add_subdirectory(Plugins/PCDReader)
+include_directories(Plugins/PCDReader)
+
+# -------------------------------------------------------------------------------------------------
 # Compiling
 
 build_paraview_client(AnCloud
@@ -218,4 +216,4 @@ build_paraview_client(AnCloud
 # target_link_libraries(AnCloud ${VTK_LIBRARIES})
 
 target_link_libraries(AnCloud
-  LINK_PRIVATE vtkPVClientServerCoreRendering ${VTK_LIBRARIES}) #${PARAVIEW_DEFAULT_VTK_MODULES}
+  LINK_PRIVATE vtkPVClientServerCoreRendering ${VTK_LIBRARIES} LINK_PUBLIC PCDReader) #${PARAVIEW_DEFAULT_VTK_MODULES}

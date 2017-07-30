@@ -37,15 +37,15 @@
 *
 */
 
-#ifndef vtkPCDReaderRaw_h
-#define vtkPCDReaderRaw_h
+#ifndef PCDReaderRaw_h
+#define PCDReaderRaw_h
 
 #include <vtkSmartPointer.h>
 #include <vtkPolyData.h>
 
 typedef vtkPolyData vtkPointCloudType;
 
-class vtkPCDReaderRaw
+class PCDReaderRaw
 {
 public:
 	struct PointField {
@@ -73,4 +73,4 @@ private:
 					unsigned int &data_idx, unsigned int &point_step, const int offset = 0);
 };
 
-#endif // vtkPCDReaderRaw_h
+#endif // PCDReaderRaw_h

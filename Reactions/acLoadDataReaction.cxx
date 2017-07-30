@@ -32,13 +32,11 @@ acLoadDataReaction::acLoadDataReaction(QAction *parent)
 
 pqPipelineSource* acLoadDataReaction::loadData()
 {
-	/*pqServer *server = pqActiveObjects::instance().activeServer();
+	pqServer *server = pqActiveObjects::instance().activeServer();
 	vtkSMReaderFactory *readerFactory = vtkSMProxyManager::GetProxyManager()->GetReaderFactory();
-	QString filters = readerFactory->GetSupportedFileTypes(server->session());*/
-
+	QString filters = readerFactory->GetSupportedFileTypes(server->session());
 	const QString defaultPathToken = "AnCloud/OpenData/DefaultDir";
 
-	QString filters = tr("PCD Data Files (*.pcd);;All Files (*)");
 	pqSettings* settings = pqApplicationCore::instance()->settings();
 	QString defaultDir = settings->value(defaultPathToken, QDir::homePath()).toString();
 	QString fileName = QFileDialog::getOpenFileName(

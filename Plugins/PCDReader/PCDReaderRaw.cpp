@@ -36,7 +36,7 @@
  *
  */
 
-#include "vtkPCDReaderRaw.h"
+#include "PCDReaderRaw.h"
 
 #include <fstream>
 #include <sstream>
@@ -51,7 +51,7 @@
 // #include <pcl/io/pcd_io.h>
 // #include <pcl/io/lzf.h>
 // #include <pcl/console/time.h>
-#include "ThirdParty/PCL/io/lzf.h"
+#include "lzf.h"
 
 #include <cctype>
 #include <cstring>
@@ -141,7 +141,7 @@ inline int getFieldType(const int size, char type)
 	}
 }
 
-template<class Type> Type copyStringValue(std::string &str)
+template<class Type> inline Type copyStringValue(std::string &str)
 {
 	Type value;
 	if (str.compare("nan") == 0)
@@ -172,18 +172,18 @@ INSTANTIATE_TYPE(VTK_TYPE_FLOAT64, double)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-unsigned int vtkPCDReaderRaw::readHeader (const char *file_name, int &data_type, std::vector<PointField> &fields,
-                             unsigned int &data_idx, unsigned int &point_step, const int offset)
+unsigned int PCDReaderRaw::readHeader (const char *file_name, int &data_type, std::vector<PointField> &fields,
+							 unsigned int &data_idx, unsigned int &point_step, const int offset)
 {
-    // Default values
-    data_idx = 0;
-    data_type = 0;
+	// Default values
+	data_idx = 0;
+	data_type = 0;
 
-    unsigned int nr_points = 0;
-    std::ifstream fs;
-    std::string line;
+	unsigned int nr_points = 0;
+	std::ifstream fs;
+	std::string line;
 
-    int specified_channel_count = 0;
+	int specified_channel_count = 0;
 
 	if (file_name == "") // Not assigned
 	{
@@ -191,28 +191,28 @@ unsigned int vtkPCDReaderRaw::readHeader (const char *file_name, int &data_type,
 		return (-1);
 	}
 
-    // Open file in binary mode to avoid problem of 
-    // std::getline() corrupting the result of ifstream::tellg()
-    fs.open (file_name, std::ios::binary);
+	// Open file in binary mode to avoid problem of 
+	// std::getline() corrupting the result of ifstream::tellg()
+	fs.open (file_name, std::ios::binary);
 	if (!fs.is_open() || fs.fail())
 	{
 		qCritical() << "Could not open file" << file_name;
 		return (-1); // Fail to open
 	}
 
-    // Seek at the given offset
-    fs.seekg (offset, std::ios::beg);
+	// Seek at the given offset
+	fs.seekg (offset, std::ios::beg);
 
-    // field_types represents the type of data in a field (e.g., F = float, U = unsigned)
-    std::vector<char> field_types;
-    std::vector<std::string> st;
+	// field_types represents the type of data in a field (e.g., F = float, U = unsigned)
+	std::vector<char> field_types;
+	std::vector<std::string> st;
 	bool size_parsed = false;
 
-    // Read the header and fill it in with wonderful values
-    try
-    {
-        while (!fs.eof ())
-        {
+	// Read the header and fill it in with wonderful values
+	try
+	{
+		while (!fs.eof ())
+		{
 			getline (fs, line);
 			// Ignore empty lines
 			if (line == "")
@@ -355,44 +355,45 @@ unsigned int vtkPCDReaderRaw::readHeader (const char *file_name, int &data_type,
 				break;
 			}
 			break;
-        }
-    }
-    catch (const char *exception)
-    {
-        qCritical() << exception;
-        fs.close ();
-        return (-1);
-    }
+		}
+	}
+	catch (const char *exception)
+	{
+		qCritical() << exception;
+		fs.close ();
+		return (-1);
+	}
 
-    // Exit early: if no points have been given, there's no sense to read or check anything anymore
-    if (nr_points == 0)
-    {
+	// Exit early: if no points have been given, there's no sense to read or check anything anymore
+	if (nr_points == 0)
+	{
 		qCritical() << "No points to read\n";
-        fs.close ();
-        return (-1);
-    }
+		fs.close ();
+		return (-1);
+	}
 
-    // Close file
-    fs.close ();
+	// Close file
+	fs.close ();
 
-    return nr_points;
+	return nr_points;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define acTemplateMacroCase(dtype, call)     \
-  case dtype: { typedef asType<dtype>::type itype; call; }; break
-#define acTemplateMacro(call)											\
+	  case dtype: { typedef asType<dtype>::type itype; call; }; break
+// types sorted mainly by frequency
+#define acTemplateMacro(call)						\
 	acTemplateMacroCase(VTK_TYPE_FLOAT32, call);	\
 	acTemplateMacroCase(VTK_TYPE_FLOAT64, call);	\
 	acTemplateMacroCase(VTK_TYPE_INT32, call);		\
-	acTemplateMacroCase(VTK_TYPE_UINT32, call);	\
+	acTemplateMacroCase(VTK_TYPE_UINT32, call);		\
 	acTemplateMacroCase(VTK_TYPE_INT16, call);		\
-	acTemplateMacroCase(VTK_TYPE_UINT16, call);	\
+	acTemplateMacroCase(VTK_TYPE_UINT16, call);		\
 	acTemplateMacroCase(VTK_TYPE_INT8, call);		\
 	acTemplateMacroCase(VTK_TYPE_UINT8, call)		\
 
-vtkSmartPointer<vtkPointCloudType> vtkPCDReaderRaw::readFile(const char *file_name, const int offset)
+vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name, const int offset)
 {
 	int data_type;
 	unsigned int data_idx;

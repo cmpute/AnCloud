@@ -4,7 +4,7 @@
 #include <vtkAbstractPolyDataReader.h>
 #include <vtkSetGet.h> // Macro
 
-class vtkPCDReader : public vtkAbstractPolyDataReader
+class VTK_EXPORT vtkPCDReader : public vtkAbstractPolyDataReader
 {
 public:
     static vtkPCDReader *New();
