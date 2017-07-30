@@ -102,29 +102,6 @@ void acMainWindow::paraviewInit()
 	pqActiveObjects::instance().setActiveView(view);
 
 	// TODO: Add SpreadSheet View
-
-	///////////////// TEST //////////////////
-
-	QString fileName = tr("E:/AnCloudDataTest/curve2d_binary.pcd");
-
-	vtkSmartPointer<vtkPCDReader> reader = vtkPCDReader::New();
-	reader->SetFileName(fileName.toLocal8Bit().data());
-	reader->Update();
-
-	vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-	mapper->SetInputConnection(reader->GetOutputPort());
-
-	vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
-	actor->SetMapper(mapper);
-
-	vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
-	renderer->AddActor(actor);
-
-	vtkSMRenderViewProxy* target = view->getRenderViewProxy();
-	target->GetRenderWindow()->AddRenderer(renderer);
-	target->Update();
-	target->UpdateVTKObjects();
-	/////////////////////////////////////////
 }
 
 acMainWindow::~acMainWindow()
