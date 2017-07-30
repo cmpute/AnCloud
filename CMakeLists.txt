@@ -42,6 +42,7 @@ set(SRC_FILES
   Components/Widgets/acSelectionViewWidget.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
+  Core/vtkPCDReaderRaw.cxx
   Reactions/acLoadDataReaction.cxx
   Reactions/acReaction.cxx
   Reactions/acSaveDataReaction.cxx
@@ -50,6 +51,7 @@ set(SRC_FILES
 
 set(HDR_FILES
   Components/acMenuBuilders.h
+  Core/vtkPCDReaderRaw.h
 )
 
 set(MOC_HDRS_FILES
@@ -77,6 +79,11 @@ set(UI_FILES
 
 set(QRC_FILES
   Resources/Icons/icons.qrc
+)
+
+set(EXT_Srcs
+  ThirdParty/PCL/io/lzf.h
+  ThirdParty/PCL/io/lzf.cpp
 )
 
 # -------------------------------------------------------------------------------------------------
@@ -174,6 +181,10 @@ source_group("Generated" FILES
   ${QRC_Srcs}
 )
 
+source_group("ThirdParty" FILES
+  ${EXT_Srcs}
+)
+
 # -------------------------------------------------------------------------------------------------
 # Compiling
 
@@ -194,6 +205,7 @@ build_paraview_client(AnCloud
     ${MOC_HDRS_FILES}
     ${UI_Srcs}
     ${QRC_Srcs}
+    ${EXT_Srcs}
   INSTALL_BIN_DIR ${AC_INSTALL_RUNTIME_DIR}
   INSTALL_LIB_DIR ${AC_INSTALL_LIBRARY_DIR}
 )
