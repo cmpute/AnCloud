@@ -42,6 +42,7 @@ set(SRC_FILES
   Components/Widgets/acSelectionViewWidget.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
+  Core/vtkPCDReader.cxx
   Core/vtkPCDReaderRaw.cxx
   Reactions/acLoadDataReaction.cxx
   Reactions/acReaction.cxx
@@ -51,6 +52,7 @@ set(SRC_FILES
 
 set(HDR_FILES
   Components/acMenuBuilders.h
+  Core/vtkPCDReader.h
   Core/vtkPCDReaderRaw.h
 )
 
@@ -216,4 +218,4 @@ build_paraview_client(AnCloud
 # target_link_libraries(AnCloud ${VTK_LIBRARIES})
 
 target_link_libraries(AnCloud
-  LINK_PRIVATE vtkPVClientServerCoreRendering) #${PARAVIEW_DEFAULT_VTK_MODULES}
+  LINK_PRIVATE vtkPVClientServerCoreRendering ${VTK_LIBRARIES}) #${PARAVIEW_DEFAULT_VTK_MODULES}

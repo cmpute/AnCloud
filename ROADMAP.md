@@ -1,5 +1,6 @@
 # Operation
 - Set Operations: can be implemented with Disjoint-Set/Hash Table/Other methods([Exchanging](http://blog.sina.com.cn/s/blog_616e189f0100mrdn.html), [Compression](http://ramsey16.net/%E4%BA%A4%E9%9B%86%E5%92%8C%E5%B9%B6%E9%9B%86/))
+- Add support for dragging multiple files in
 # UI
 ## Docks
 - Selection View (TreeView) (Source View included)

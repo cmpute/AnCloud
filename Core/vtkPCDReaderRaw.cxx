@@ -408,9 +408,6 @@ vtkSmartPointer<vtkPointCloudType> vtkPCDReaderRaw::readFile(const char *file_na
 		return NULL;
 	cloud_data_size = nr_points * point_step;
 
-	std::vector<unsigned int> fields_sizes(fields.size()); // field sizes with count multiplied.
-	unsigned int idx = 0; // point index
-
 	// reserve space for data and process valid fields
 	for (int i = 0; i < fields.size(); ++i)
 	{
@@ -421,8 +418,6 @@ vtkSmartPointer<vtkPointCloudType> vtkPCDReaderRaw::readFile(const char *file_na
 		{
 		// MACRO Start
 #		define SetupField(type)																	\
-			fields_sizes[i] = fields[i].count * fields[i].size;									\
-																								\
 			vtkAOSDataArrayTemplate<type> *darray = vtkAOSDataArrayTemplate<type>::New();		\
 			darray->SetName(fields[i].name.c_str());											\
 			if (fields[i].count > 1)															\
@@ -441,6 +436,8 @@ vtkSmartPointer<vtkPointCloudType> vtkPCDReaderRaw::readFile(const char *file_na
 			break;
 		}
 	}
+
+	unsigned int idx = 0; // point index
 
 	// --[ ASCII mode ]--
 	if (data_type == 0)

@@ -30,6 +30,16 @@
 
 #include "acMenuBuilders.h"
 
+///////////// TEST ////////////////
+#include "Core/vtkPCDReader.h"
+#include "vtkActor.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
+#include "vtkSMRenderViewProxy.h"
+///////////////////////////////////
+
 acMainWindow::acMainWindow(QWidget *parent) :
     QMainWindow(parent),
     Ui(new Ui_acMainWindow),
@@ -82,6 +92,29 @@ void acMainWindow::paraviewInit()
 
 	// Add to the window
 	this->setCentralWidget(view->widget());
+
+	///////////////// TEST //////////////////
+
+	QString fileName = tr("E:/AnCloudDataTest/curve2d_binary.pcd");
+
+	vtkSmartPointer<vtkPCDReader> reader = vtkPCDReader::New();
+	reader->SetFileName(fileName.toLocal8Bit().data());
+	reader->Update();
+
+	vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+	mapper->SetInputConnection(reader->GetOutputPort());
+
+	vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
+	actor->SetMapper(mapper);
+
+	vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+	renderer->AddActor(actor);
+
+	vtkSMRenderViewProxy* target = view->getRenderViewProxy();
+	target->GetRenderWindow()->AddRenderer(renderer);
+	target->Update();
+	target->UpdateVTKObjects();
+	/////////////////////////////////////////
 }
 
 acMainWindow::~acMainWindow()
