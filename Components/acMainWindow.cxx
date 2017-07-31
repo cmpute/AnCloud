@@ -63,6 +63,8 @@ acMainWindow::acMainWindow(QWidget *parent) :
     acMainMenuBuilder::buildEditMenu(*this->Ui->menuEdit);
     acMainMenuBuilder::buildHelpMenu(*this->Ui->menuHelp);
 	new pqViewMenuManager(this, this->Ui->menuView);
+
+	emit this->windowLoaded();
 };
 
 void acMainWindow::paraviewInit()

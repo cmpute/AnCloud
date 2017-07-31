@@ -6,6 +6,10 @@
    <string>&amp;Edit</string>
   </property>
   <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/undo</normaloff>:/Icons/undo</iconset>
+   </property>
    <property name="text">
     <string>Undo</string>
    </property>
@@ -14,6 +18,10 @@
    </property>
   </action>
   <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/redo</normaloff>:/Icons/redo</iconset>
+   </property>
    <property name="text">
     <string>Redo</string>
    </property>

@@ -145,10 +145,10 @@
      <normaloff>:/Icons/zoomToSelection</normaloff>:/Icons/zoomToSelection</iconset>
    </property>
    <property name="text">
-    <string>Zoom to Box</string>
+    <string>Zoom to box</string>
    </property>
    <property name="statusTip">
-    <string>Zoom to Box</string>
+    <string>Zoom to box</string>
    </property>
   </action>
   <action name="actionZoomToData">
@@ -160,10 +160,16 @@
      <normaloff>:/Icons/zoomToData</normaloff>:/Icons/zoomToData</iconset>
    </property>
    <property name="text">
-    <string>ZTD</string>
+    <string>Zoom to data</string>
+   </property>
+   <property name="iconText">
+    <string>Zoom to data</string>
    </property>
    <property name="toolTip">
-    <string>Zoom To Data</string>
+    <string>Zoom to data</string>
+   </property>
+   <property name="statusTip">
+    <string>Zoom to data</string>
    </property>
   </action>
   <action name="actionShowOrientationAxes">

@@ -3,7 +3,6 @@
   <qresource prefix="/Icons">
     <!-- Typical file operations. -->
     <file alias="editColor">pqEditColor.png</file>
-    <file alias="frustumSelectionPoint">pqFrustumSelectionPoint.png</file>
     <file alias="help">pqHelp.png</file>
     <file alias="open">pqOpen.png</file>
     <file alias="redo">pqRedo.png</file>
@@ -13,6 +12,13 @@
     <file alias="save">pqSave.png</file>
     <file alias="saveTable">pqSaveTable.png</file>
     <file alias="scalarBar">pqScalarBar.png</file>
+    <file alias="selectFrustum">pqFrustumSelectionPoint.png</file>
+    <file alias="selectHover">pqSurfaceHoveringPoint.png</file>
+    <file alias="selectInteractive">pqSurfaceSelectPointInteractive.png</file>
+    <file alias="SelectLasso">pqPolygonSelectSurfacePoint.png</file>
+    <file alias="selectMinus">pqSelectMinus.png</file>
+    <file alias="selectPlus">pqSelectPlus.png</file>
+    <file alias="selectToggle">pqSelectToggle.png</file>
     <file alias="showOrientationAxes">pqShowOrientationAxes.png</file>
     <file alias="undo">pqUndo.png</file>
     <file alias="xMinus">pqXMinus.png</file>

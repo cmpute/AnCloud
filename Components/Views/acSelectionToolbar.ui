@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>acSelectionToolbar</class>
+ <widget class="QToolBar" name="acSelectionToolbar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>233</width>
+    <height>42</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Selection Tools</string>
+  </property>
+  <property name="orientation">
+   <enum>Qt::Horizontal</enum>
+  </property>
+  <action name="actionAddSelection">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/selectPlus</normaloff>:/Icons/selectPlus</iconset>
+   </property>
+   <property name="text">
+    <string>Add selection</string>
+   </property>
+   <property name="iconText">
+    <string>Add selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Add selection (Ctrl)</string>
+   </property>
+   <property name="statusTip">
+    <string>Add selection (Ctrl)</string>
+   </property>
+  </action>
+  <action name="actionSelectFrustumPoints">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/selectFrustum</normaloff>:/Icons/selectFrustum</iconset>
+   </property>
+   <property name="text">
+    <string>Frustum</string>
+   </property>
+   <property name="iconText">
+    <string>Frustum</string>
+   </property>
+   <property name="toolTip">
+    <string>Select Points Through (g)</string>
+   </property>
+   <property name="statusTip">
+    <string>Select Points Through (g)</string>
+   </property>
+   <property name="whatsThis">
+    <string>Select Points Through (g)</string>
+   </property>
+  </action>
+  <action name="actionSelectLassoPoints">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/SelectLasso</normaloff>:/Icons/SelectLasso</iconset>
+   </property>
+   <property name="text">
+    <string>Lasso</string>
+   </property>
+   <property name="iconText">
+    <string>Lasso</string>
+   </property>
+   <property name="toolTip">
+    <string>Select Points With Mouse</string>
+   </property>
+   <property name="statusTip">
+    <string>Select Points With Mouse</string>
+   </property>
+   <property name="whatsThis">
+    <string>Select Points With Mouse</string>
+   </property>
+  </action>
+  <action name="actionSelectPointsInteractive">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/selectInteractive</normaloff>:/Icons/selectInteractive</iconset>
+   </property>
+   <property name="text">
+    <string>Interactive</string>
+   </property>
+   <property name="iconText">
+    <string>Interactive</string>
+   </property>
+   <property name="toolTip">
+    <string>Interactive Select Points On</string>
+   </property>
+   <property name="statusTip">
+    <string>Interactive Select Points On</string>
+   </property>
+   <property name="whatsThis">
+    <string>Interactive Select Points On</string>
+   </property>
+  </action>
+  <action name="actionHoveringPoints">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/selectHover</normaloff>:/Icons/selectHover</iconset>
+   </property>
+   <property name="text">
+    <string>Hover</string>
+   </property>
+   <property name="iconText">
+    <string>Hover</string>
+   </property>
+   <property name="toolTip">
+    <string>Hover Points On</string>
+   </property>
+   <property name="statusTip">
+    <string>Hover Points On</string>
+   </property>
+   <property name="whatsThis">
+    <string>Hover Points On</string>
+   </property>
+  </action>
+  <action name="actionToggleSelection">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/selectToggle</normaloff>:/Icons/selectToggle</iconset>
+   </property>
+   <property name="text">
+    <string>Toggle selection</string>
+   </property>
+   <property name="iconText">
+    <string>Toggle selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Toggle selection (Ctrl+Shift)</string>
+   </property>
+   <property name="statusTip">
+    <string>Toggle selection (Ctrl+Shift)</string>
+   </property>
+  </action>
+  <action name="actionSubtractSelection">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../Resources/Icons/icons.qrc">
+     <normaloff>:/Icons/selectMinus</normaloff>:/Icons/selectMinus</iconset>
+   </property>
+   <property name="text">
+    <string>Subtract selection</string>
+   </property>
+   <property name="iconText">
+    <string>Subtract selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Subtract selection (Shift)</string>
+   </property>
+   <property name="statusTip">
+    <string>Subtract selection (Shift)</string>
+   </property>
+  </action>
+  <addaction name="actionAddSelection"/>
+  <addaction name="actionSubtractSelection"/>
+  <addaction name="actionToggleSelection"/>
+  <addaction name="separator"/>
+  <addaction name="actionSelectFrustumPoints"/>
+  <addaction name="actionSelectLassoPoints"/>
+  <addaction name="actionSelectPointsInteractive"/>
+  <addaction name="actionHoveringPoints"/>
+ </widget>
+ <resources>
+  <include location="../../Resources/Icons/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

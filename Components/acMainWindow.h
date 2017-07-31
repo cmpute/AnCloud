@@ -15,7 +15,8 @@ public:
   explicit acMainWindow(QWidget *parent = 0);
   ~acMainWindow();
 
-protected:
+signals:
+  void windowLoaded();
 
 protected slots:
 
