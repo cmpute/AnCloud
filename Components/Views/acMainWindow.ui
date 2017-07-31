@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../../Resources/Icons/icons.qrc">
-    <normaloff>:/Icons/AppIcon128.png</normaloff>:/Icons/AppIcon128.png</iconset>
+    <normaloff>:/Icons/appIcon</normaloff>:/Icons/appIcon</iconset>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -70,6 +70,23 @@
     <bool>false</bool>
    </attribute>
   </widget>
+  <widget class="acCameraToolbar" name="cameraToolBar">
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <widget class="QDockWidget" name="selectionViewDock">
    <property name="windowTitle">
     <string>Selection View</string>
@@ -103,6 +120,11 @@
    <class>acMainToolbar</class>
    <extends>QToolBar</extends>
    <header>Components/Toolbars/acMainToolbar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>acCameraToolbar</class>
+   <extends>QToolBar</extends>
+   <header>Components/Toolbars/acCameraToolbar.h</header>
   </customwidget>
   <customwidget>
    <class>acSelectionInfoWidget</class>

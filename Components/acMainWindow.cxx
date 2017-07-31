@@ -9,6 +9,8 @@
 #include <pqDataTimeStepBehavior.h>
 #include <pqDefaultViewBehavior.h>
 #include <pqInterfaceTracker.h>
+#include <pqLockPanelsBehavior.h>
+#include <pqViewMenuManager.h>
 #include <pqObjectBuilder.h>
 #include "pqObjectPickingBehavior.h"
 #include <pqPersistentMainWindowStateBehavior.h>
@@ -59,8 +61,8 @@ acMainWindow::acMainWindow(QWidget *parent) :
     // Setup menus
     acMainMenuBuilder::buildFileMenu(*this->Ui->menuFile);
     acMainMenuBuilder::buildEditMenu(*this->Ui->menuEdit);
-    acMainMenuBuilder::buildViewMenu(*this->Ui->menuView);
     acMainMenuBuilder::buildHelpMenu(*this->Ui->menuHelp);
+	new pqViewMenuManager(this, this->Ui->menuView);
 };
 
 void acMainWindow::paraviewInit()
@@ -68,6 +70,7 @@ void acMainWindow::paraviewInit()
 	pqApplicationCore *core = pqApplicationCore::instance();
 	// Define application behaviours
 	// TODO: Add behaviours
+	new pqLockPanelsBehavior(this); // Enable locking panels
 
 	// Define supported files
 	vtkSMReaderFactory *readerFactory = vtkSMProxyManager::GetProxyManager()->GetReaderFactory();

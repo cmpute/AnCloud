@@ -36,6 +36,7 @@ endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(SRC_FILES
+  Components/Toolbars/acCameraToolbar.cxx
   Components/Toolbars/acMainToolbar.cxx
   Components/Widgets/acLabelViewWidget.cxx
   Components/Widgets/acSelectionInfoWidget.cxx
@@ -53,6 +54,7 @@ set(HDR_FILES
 )
 
 set(MOC_HDRS_FILES
+  Components/Toolbars/acCameraToolbar.h
   Components/Toolbars/acMainToolbar.h
   Components/Widgets/acLabelViewWidget.h
   Components/Widgets/acSelectionInfoWidget.h
@@ -65,6 +67,7 @@ set(MOC_HDRS_FILES
 )
 
 set(UI_FILES
+  Components/Views/acCameraToolbar.ui
   Components/Views/acEditMenu.ui
   Components/Views/acFileMenu.ui
   Components/Views/acHelpMenu.ui
@@ -72,7 +75,6 @@ set(UI_FILES
   Components/Views/acMainWindow.ui
   Components/Views/acSelectionInfoWidget.ui
   Components/Views/acSelectionViewWidget.ui
-  Components/Views/acViewMenu.ui
 )
 
 set(QRC_FILES

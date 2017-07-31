@@ -58,7 +58,7 @@
         <action name="actionAddCurrent">
          <property name="icon">
           <iconset resource="../../Resources/Icons/icons.qrc">
-           <normaloff>:/Icons/help.png</normaloff>:/Icons/help.png</iconset>
+           <normaloff>:/Icons/help</normaloff>:/Icons/help</iconset>
          </property>
          <property name="text">
           <string>Add Current Selection</string>
@@ -67,7 +67,7 @@
         <action name="actionMerge">
          <property name="icon">
           <iconset resource="../../Resources/Icons/icons.qrc">
-           <normaloff>:/Icons/help.png</normaloff>:/Icons/help.png</iconset>
+           <normaloff>:/Icons/help</normaloff>:/Icons/help</iconset>
          </property>
          <property name="text">
           <string>Merge Selections</string>
@@ -86,6 +86,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Resources/Icons/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

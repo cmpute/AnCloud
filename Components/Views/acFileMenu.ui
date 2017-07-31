@@ -8,7 +8,7 @@
   <action name="actionOpenData">
    <property name="icon">
     <iconset resource="../../Resources/Icons/icons.qrc">
-     <normaloff>:/Icons/fileopen.png</normaloff>:/Icons/fileopen.png</iconset>
+     <normaloff>:/Icons/open</normaloff>:/Icons/open</iconset>
    </property>
    <property name="text">
     <string>Open File...</string>
@@ -20,7 +20,7 @@
   <action name="actionSaveData">
    <property name="icon">
     <iconset resource="../../Resources/Icons/icons.qrc">
-     <normaloff>:/Icons/filesave.png</normaloff>:/Icons/filesave.png</iconset>
+     <normaloff>:/Icons/save</normaloff>:/Icons/save</iconset>
    </property>
    <property name="text">
     <string>Save</string>

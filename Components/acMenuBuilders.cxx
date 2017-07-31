@@ -2,7 +2,6 @@
 
 #include "ui_acFileMenu.h"
 #include "ui_acEditMenu.h"
-#include "ui_acViewMenu.h"
 #include "ui_acHelpMenu.h"
 
 #include "../Reactions/acLoadDataReaction.h"
@@ -27,12 +26,6 @@ void acMainMenuBuilder::buildEditMenu(QMenu &menu)
 
     new acUndoRedoReaction(ui.actionUndo, true);
     new acUndoRedoReaction(ui.actionRedo, false);
-}
-
-void acMainMenuBuilder::buildViewMenu(QMenu &menu)
-{
-    Ui_acViewMenu ui;
-    ui.setupUi(&menu);
 }
 
 void acMainMenuBuilder::buildHelpMenu(QMenu &menu)

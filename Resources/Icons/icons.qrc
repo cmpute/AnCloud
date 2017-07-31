@@ -2,14 +2,29 @@
 <RCC version="1.0">
   <qresource prefix="/Icons">
     <!-- Typical file operations. -->
-    <file>fileopen.png</file>
-    <file>filesave.png</file>
-    <file>print.png</file>
-
-    <!-- Help -->
-    <file>help.png</file>
+    <file alias="editColor">pqEditColor.png</file>
+    <file alias="frustumSelectionPoint">pqFrustumSelectionPoint.png</file>
+    <file alias="help">pqHelp.png</file>
+    <file alias="open">pqOpen.png</file>
+    <file alias="redo">pqRedo.png</file>
+    <file alias="resetCamera">pqResetCamera.png</file>
+    <file alias="resetRange">pqResetRange.png</file>
+    <file alias="resetRangeCustom">pqResetRangeCustom.png</file>
+    <file alias="save">pqSave.png</file>
+    <file alias="saveTable">pqSaveTable.png</file>
+    <file alias="scalarBar">pqScalarBar.png</file>
+    <file alias="showOrientationAxes">pqShowOrientationAxes.png</file>
+    <file alias="undo">pqUndo.png</file>
+    <file alias="xMinus">pqXMinus.png</file>
+    <file alias="xPlus">pqXPlus.png</file>
+    <file alias="yMinus">pqYMinus.png</file>
+    <file alias="yPlus">pqYPlus.png</file>
+    <file alias="zMinus">pqZMinus.png</file>
+    <file alias="zPlus">pqZPlus.png</file>
+    <file alias="zoomToData">pqZoomToData.png</file>
+    <file alias="zoomToSelection">pqZoomToSelection.png</file>
 	
-	<!-- App Icon -->
-	<file>AppIcon128.png</file>
+    <!-- App Icon -->
+    <file alias="appIcon">AppIcon128.png</file>
   </qresource>
 </RCC>
