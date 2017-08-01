@@ -21,7 +21,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/selectPlus</normaloff>:/Icons/selectPlus</iconset>
    </property>
    <property name="text">
@@ -42,7 +42,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/selectFrustum</normaloff>:/Icons/selectFrustum</iconset>
    </property>
    <property name="text">
@@ -66,7 +66,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/SelectLasso</normaloff>:/Icons/SelectLasso</iconset>
    </property>
    <property name="text">
@@ -90,7 +90,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/selectInteractive</normaloff>:/Icons/selectInteractive</iconset>
    </property>
    <property name="text">
@@ -114,7 +114,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/selectHover</normaloff>:/Icons/selectHover</iconset>
    </property>
    <property name="text">
@@ -138,7 +138,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/selectToggle</normaloff>:/Icons/selectToggle</iconset>
    </property>
    <property name="text">
@@ -162,7 +162,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/selectMinus</normaloff>:/Icons/selectMinus</iconset>
    </property>
    <property name="text">
@@ -188,7 +188,7 @@
   <addaction name="actionHoveringPoints"/>
  </widget>
  <resources>
-  <include location="../../Resources/Icons/icons.qrc"/>
+  <include location="../../Resources/acIcons.qrc"/>
  </resources>
  <connections/>
 </ui>

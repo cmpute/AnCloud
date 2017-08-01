@@ -18,7 +18,7 @@
   </property>
   <action name="actionResetCamera">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/resetCamera</normaloff>:/Icons/resetCamera</iconset>
    </property>
    <property name="text">
@@ -33,7 +33,7 @@
   </action>
   <action name="actionPositiveX">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/xPlus</normaloff>:/Icons/xPlus</iconset>
    </property>
    <property name="text">
@@ -51,7 +51,7 @@
   </action>
   <action name="actionNegativeX">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/xMinus</normaloff>:/Icons/xMinus</iconset>
    </property>
    <property name="text">
@@ -69,7 +69,7 @@
   </action>
   <action name="actionPositiveY">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/yPlus</normaloff>:/Icons/yPlus</iconset>
    </property>
    <property name="text">
@@ -87,7 +87,7 @@
   </action>
   <action name="actionNegativeY">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/yMinus</normaloff>:/Icons/yMinus</iconset>
    </property>
    <property name="text">
@@ -105,7 +105,7 @@
   </action>
   <action name="actionPositiveZ">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/zPlus</normaloff>:/Icons/zPlus</iconset>
    </property>
    <property name="text">
@@ -123,7 +123,7 @@
   </action>
   <action name="actionNegativeZ">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/zMinus</normaloff>:/Icons/zMinus</iconset>
    </property>
    <property name="text">
@@ -141,7 +141,7 @@
   </action>
   <action name="actionZoomToBox">
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/zoomToSelection</normaloff>:/Icons/zoomToSelection</iconset>
    </property>
    <property name="text">
@@ -156,7 +156,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/zoomToData</normaloff>:/Icons/zoomToData</iconset>
    </property>
    <property name="text">
@@ -180,7 +180,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../Resources/Icons/icons.qrc">
+    <iconset resource="../../Resources/acIcons.qrc">
      <normaloff>:/Icons/showOrientationAxes</normaloff>:/Icons/showOrientationAxes</iconset>
    </property>
    <property name="text">
@@ -204,7 +204,7 @@
   <addaction name="actionShowOrientationAxes"/>
  </widget>
  <resources>
-  <include location="../../Resources/Icons/icons.qrc"/>
+  <include location="../../Resources/acIcons.qrc"/>
  </resources>
  <connections/>
 </ui>

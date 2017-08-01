@@ -13,7 +13,7 @@
   <addaction name="actionAbout"/>
  </widget>
  <resources>
-  <include location="../../Resources/Icons/icons.qrc"/>
+  <include location="../../Resources/acIcons.qrc"/>
  </resources>
  <connections/>
 </ui>

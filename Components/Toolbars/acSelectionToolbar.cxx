@@ -1,4 +1,5 @@
 #include "acSelectionToolbar.h"
+#include "acApplicationCore.h"
 
 #include <pqActiveObjects.h>
 #include <pqRenderView.h>
@@ -15,15 +16,7 @@ void acSelectionToolbar::constructor()
 {
 	this->Ui->setupUi(this);
 
-	QMainWindow* mainWindow;
-    foreach(QWidget *topWidget, QApplication::topLevelWidgets())
-    {
-		mainWindow = qobject_cast<QMainWindow*>(topWidget);
-        if (mainWindow)
-        {
-			break;
-        }
-    }
+	QMainWindow* mainWindow = acApplicationCore::instance()::getMainWindow();
     this->ShortCutEsc = new QShortcut(QKeySequence(Qt::Key_Escape), mainWindow);
     this->ShortCutEsc->setEnabled(false);
     this->connect(this->ShortCutEsc, SIGNAL(activated()), SLOT(escTriggered()));

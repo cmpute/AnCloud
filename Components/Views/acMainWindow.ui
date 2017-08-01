@@ -14,7 +14,7 @@
    <string>AnCloud</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../Resources/Icons/icons.qrc">
+   <iconset resource="../../Resources/acIcons.qrc">
     <normaloff>:/Icons/appIcon</normaloff>:/Icons/appIcon</iconset>
   </property>
   <widget class="QWidget" name="centralwidget"/>
@@ -168,7 +168,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../Resources/Icons/icons.qrc"/>
+  <include location="../../Resources/acIcons.qrc"/>
  </resources>
  <connections/>
 </ui>

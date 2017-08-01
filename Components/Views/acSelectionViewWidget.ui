@@ -57,7 +57,7 @@
        <widget class="QToolBar" name="toolbar">
         <action name="actionAddCurrent">
          <property name="icon">
-          <iconset resource="../../Resources/Icons/icons.qrc">
+          <iconset resource="../../Resources/acIcons.qrc">
            <normaloff>:/Icons/help</normaloff>:/Icons/help</iconset>
          </property>
          <property name="text">
@@ -66,7 +66,7 @@
         </action>
         <action name="actionMerge">
          <property name="icon">
-          <iconset resource="../../Resources/Icons/icons.qrc">
+          <iconset resource="../../Resources/acIcons.qrc">
            <normaloff>:/Icons/help</normaloff>:/Icons/help</iconset>
          </property>
          <property name="text">
@@ -87,7 +87,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../../Resources/Icons/icons.qrc"/>
+  <include location="../../Resources/acIcons.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -397,16 +397,17 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 {
 	int data_type;
 	unsigned int data_idx;
-	int nr_points;
+	unsigned int nr_points;
 	std::vector<PointField> fields;
 	std::vector<vtkAbstractArray*> data;
 	unsigned int point_step;
 	int cloud_data_size;
 
-	nr_points = readHeader(file_name, data_type, fields, data_idx, point_step, offset);
+	int result = readHeader(file_name, data_type, fields, data_idx, point_step, offset);
 
-	if (nr_points < 0)
+	if (result < 0)
 		return NULL;
+	nr_points = static_cast<unsigned int>(result);
 	cloud_data_size = nr_points * point_step;
 
 	// reserve space for data and process valid fields
@@ -735,7 +736,7 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 			vtkAOSDataArrayTemplate<type> *coordx = static_cast<vtkAOSDataArrayTemplate<type>*>(data[coord_idx[0]]);   \
 			vtkAOSDataArrayTemplate<type> *coordy = static_cast<vtkAOSDataArrayTemplate<type>*>(data[coord_idx[1]]);   \
 			vtkAOSDataArrayTemplate<type> *coordz = static_cast<vtkAOSDataArrayTemplate<type>*>(data[coord_idx[2]]);   \
-			for (int i = 0; i < nr_points; i++)																		   \
+			for (unsigned int i = 0; i < nr_points; i++)															   \
 				points->SetPoint(i, coordx->GetValue(i), coordy->GetValue(i), coordz->GetValue(i))
 		//MACRO End
 		acTemplateMacro(CAST_POINT(itype));
@@ -747,7 +748,7 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 		vtkAbstractArray *coordx = data[coord_idx[0]];
 		vtkAbstractArray *coordy = data[coord_idx[1]];
 		vtkAbstractArray *coordz = data[coord_idx[2]];
-		for (int i = 0; i < nr_points; i++)
+		for (unsigned int i = 0; i < nr_points; i++)
 			points->SetPoint(i, coordx->GetVariantValue(i).ToDouble(),
 								coordy->GetVariantValue(i).ToDouble(),
 								coordz->GetVariantValue(i).ToDouble());

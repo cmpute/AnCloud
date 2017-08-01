@@ -1,3 +1,6 @@
+cmake_minimum_required(VERSION 3.1)
+project(PCDReaderPlugin VERSION 0.1)
+
 if(ParaView_SOURCE_DIR)
   include_directories(${VTK_INCLUDE_DIRS})
 

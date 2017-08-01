@@ -28,3 +28,6 @@
 - Statusbar show the status of Toolbutton/Action
 - Color toolbar support coloring by Segment/Label/Other origin fields(XYZ, RGB, intensity, etc).
 - Primitive division toolbar
+
+# Others
+- Add "AddVertices" option to PCDReader to decide whether additional vertex cells are added

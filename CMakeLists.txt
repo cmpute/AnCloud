@@ -42,6 +42,8 @@ set(SRC_FILES
   Components/Widgets/acLabelViewWidget.cxx
   Components/Widgets/acSelectionInfoWidget.cxx
   Components/Widgets/acSelectionViewWidget.cxx
+  Components/acApplicationCore.cxx
+  Components/acComponentsInit.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
   Reactions/acLoadDataReaction.cxx
@@ -51,6 +53,7 @@ set(SRC_FILES
 )
 
 set(HDR_FILES
+  Components/acComponentsInit.h
   Components/acMenuBuilders.h
 )
 
@@ -61,6 +64,7 @@ set(MOC_HDRS_FILES
   Components/Widgets/acLabelViewWidget.h
   Components/Widgets/acSelectionInfoWidget.h
   Components/Widgets/acSelectionViewWidget.h
+  Components/acApplicationCore.h
   Components/acMainWindow.h
   Reactions/acLoadDataReaction.h
   Reactions/acReaction.h
@@ -81,7 +85,7 @@ set(UI_FILES
 )
 
 set(QRC_FILES
-  Resources/Icons/icons.qrc
+  Resources/acIcons.qrc
 )
 
 set(EXT_Srcs)
@@ -94,6 +98,8 @@ option(BUILD_SHARED_LIBS "Build shared libs" ON)
 # option(USE_EXTERNAL_VTK "Using external VTK installation" OFF)
 option(USE_EXTERNAL_ParaView "Using external ParaView installation" ON)
 option(USE_EXTERNAL_Qt "Using external Qt installation" ON)
+
+set (ANCLOUD_BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS})
 
 # -------------------------------------------------------------------------------------------------
 # Include libraries
