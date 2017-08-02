@@ -16,7 +16,7 @@ void acSelectionToolbar::constructor()
 {
 	this->Ui->setupUi(this);
 
-	QMainWindow* mainWindow = acApplicationCore::instance()::getMainWindow();
+	QMainWindow* mainWindow = acApplicationCore::instance()->getMainWindow();
     this->ShortCutEsc = new QShortcut(QKeySequence(Qt::Key_Escape), mainWindow);
     this->ShortCutEsc->setEnabled(false);
     this->connect(this->ShortCutEsc, SIGNAL(activated()), SLOT(escTriggered()));

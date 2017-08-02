@@ -93,6 +93,7 @@ void acMainWindow::paraviewInit()
 	// Create a default view.
 	pqRenderView* view = qobject_cast<pqRenderView*>(builder->createView(pqRenderView::renderViewType(), server));
 	Q_ASSERT(view);
+	view->setUseMultipleRepresentationSelection(true);
 	this->mainView = view;
 
 	vtkSMPropertyHelper(view->getProxy(), "CenterAxesVisibility").Set(0);

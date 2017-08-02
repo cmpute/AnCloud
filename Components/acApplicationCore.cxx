@@ -32,7 +32,7 @@ QMainWindow* acApplicationCore::getMainWindow()
     foreach(QWidget *topWidget, QApplication::topLevelWidgets())
     {
 		QMainWindow* window = qobject_cast<QMainWindow*>(topWidget);
-        if (acApplicationCore::mainWindow)
+        if (window)
         {
 			acApplicationCore::mainWindow = window;
             return window;
