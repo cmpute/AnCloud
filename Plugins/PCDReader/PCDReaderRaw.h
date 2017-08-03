@@ -43,6 +43,8 @@
 #include <vtkSmartPointer.h>
 #include <vtkPolyData.h>
 
+#include <functional>
+
 typedef vtkPolyData vtkPointCloudType;
 
 class PCDReaderRaw
@@ -58,7 +60,7 @@ public:
 	/**
 	 * return : NULL if failed
 	 */
-    static vtkSmartPointer<vtkPointCloudType> readFile(const char *file_name, const int offset = 0);
+    static vtkSmartPointer<vtkPointCloudType> readFile(const char *file_name, std::function<void(double)> progress, const int offset = 0);
 
 private:
 	/**

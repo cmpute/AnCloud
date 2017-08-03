@@ -1,6 +1,6 @@
 <ServerManagerConfiguration>
   <ProxyGroup name="sources">
-    <!-- Start PCDReader -->
+    <!-- ==================================================================== -->
     <SourceProxy name="PCDReader" class="vtkPCDReader" label="PCDReader">
       <Documentation long_help="Read a PCL Point Cloud Data (PCD) file."
                      short_help="Read a PCD file.">
@@ -21,6 +21,51 @@
       </Hints>
     </SourceProxy>
     <!-- End PCDReader -->
+    <!-- ==================================================================== -->
+    <SourceProxy class="vtkGridPlaneSource"
+                 label="Grid Plane"
+                 name="GridPlane">
+      <Documentation long_help="Generates a vtkPolyData measurement grid plane."
+                     short_help="Generates a grid plane.">Generates a vtkPolyData
+                     measurement grid plane with square and arc grids.</Documentation>
+      <DoubleVectorProperty name="Origin"
+                            command="SetOrigin"
+                            default_values="0.0 0.0 0.0"
+                            animateable="1"
+                            number_of_elements="3">
+        <DoubleRangeDomain name="range" />
+        <Documentation>This property specifies the 3D coordinates of the center
+        of the grid.</Documentation>
+      </DoubleVectorProperty>
+      <DoubleVectorProperty name="Normal"
+                            command="SetNormal"
+                            default_values="0.0 0.0 1.0"
+                            animateable="1"
+                            number_of_elements="3">
+        <Documentation>This property specifies the normal vector of
+        of the grid.</Documentation>
+      </DoubleVectorProperty>
+      <IntVectorProperty name="GridSize"
+                         animateable="1"
+                         command="SetGridSize"
+                         number_of_elements="1"
+                         default_values="10">
+        <IntRangeDomain min="1"
+                        name="range" />
+        <Documentation>This property specifies the count of the grids.</Documentation>
+      </IntVectorProperty>
+      <DoubleVectorProperty name="Scale"
+                            animateable="1"
+                            command="SetScale"
+                            default_values="10.0"
+                            number_of_elements="1">
+        <Documentation>This property specifies the scale of the whole grid.</Documentation>
+      </DoubleVectorProperty>
+      <PropertyGroup label="Point Parameters" panel_widget="InteractiveHandle">
+        <Property function="WorldPosition" name="Origin" />
+      </PropertyGroup>
+      <!-- End GridPlane -->
+    </SourceProxy>
   </ProxyGroup>
   <!-- End Filters Group -->
 </ServerManagerConfiguration>

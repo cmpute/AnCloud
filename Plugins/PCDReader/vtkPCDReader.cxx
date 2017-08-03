@@ -6,6 +6,8 @@
 #include <vtkInformationVector.h>
 #include <vtkSmartPointer.h>
 
+#include <functional>
+
 vtkStandardNewMacro(vtkPCDReader);
 
 vtkPCDReader::vtkPCDReader()
@@ -26,8 +28,7 @@ int vtkPCDReader::RequestData(
     vtkInformationVector **vtkNotUsed(inputVector),
     vtkInformationVector *outputVector)
 {
-    vtkInformation *outInfo = outputVector->GetInformationObject(0);
-    vtkDataSet *output = vtkDataSet::SafeDownCast(outInfo->Get(vtkDataObject::DATA_OBJECT()));
+    vtkDataSet *output = vtkDataSet::GetData(outputVector, 0);
 
     if (!this->GetFileName())
     {
@@ -35,21 +36,22 @@ int vtkPCDReader::RequestData(
         return 0;
     }
 
-    vtkSmartPointer<vtkPointCloudType> polyData = PCDReaderRaw::readFile(this->GetFileName());
+    vtkSmartPointer<vtkPointCloudType> polyData = PCDReaderRaw::readFile(this->GetFileName(),
+		std::bind1st(std::mem_fun(&vtkPCDReader::UpdateProgress), this));
 
     if (!polyData)
     {
         vtkErrorMacro("Failed to read pcd file: " << this->GetFileName());
+        return 0;
     }
 
     output->ShallowCopy(polyData);
     return 1;
 }
 
-//----------------------------------------------------------------------------
 void vtkPCDReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-    this->Superclass::PrintSelf(os,indent);
+    this->Superclass::PrintSelf(os, indent);
     os << indent << "File Name: "
        << (this->FileName ? this->FileName : "(none)") << "\n";
 }

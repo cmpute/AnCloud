@@ -32,18 +32,18 @@
 
 # Implementation
 ## Algorithm
-- The set operation could be boosted by using a bitvector (`vector<bitset>`), which the word size is preferred to be 32? (should check in [bitset source code](https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-3.4/bitset-source.html))
+- The set operation could be boosted by using a bitvector<WSIZE> (`vector<bitset>`), which the WSIZE (word size) is preferred to be 32? (should check in [bitset source code](https://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-3.4/bitset-source.html))(VTKBitArray doesn't support bit operations)
 - 【What structure shoud be used to store labels in selection? Label ID or just directly Label string?】
 ## Classes that need implementation
-- acSelectionManager
-- acSelectionModel (for TreeView)
-- vtkSelectionOperation (for high-performance set operations)
-- acDataRepresentation / vtkSMACPresentation (may be needed if selection will be not native in ParaView, and add support for data-input color information)
+- `acSelectionManager`
+- `acSelectionModel` (for TreeView)
+- `vtkSelectionOperation` (for high-performance set operations)
+- `acDataRepresentation` / `vtkSMACPresentation` (may be needed if selection will be not native in ParaView, and add support for data-input color information)
 ## Classes that need reimplementation
-- vtkExtractSelection:
+- `vtkExtractSelection`:
     1. support bitset indicators
     1. when build an extraction, automatically add to selection manager.
-- pqObjectBuilder:
+- `pqObjectBuilder`:
     1. support customized representation
     1. hook with selection manager
 
@@ -57,16 +57,15 @@
 - Frequently used keys should be assigned to single key, like selection buttons, selection modifier buttons, etc.
 
 # Plugins
-## PCDReader
-- Add "AddVertices" option to PCDReader to decide whether additional vertex cells are added
 ## Selection Plugin
-- SetOperationFilter
-    1. support set operations on certain field (or fields) of input datasets.
-    1. the set operation is done by operating on digit sign (+/-). 0 is ignored.
 - SelectionOperationFilter (MergeSelection/IntersectSelection/ToggleSelection)
-    1. can be considered as subclass of SetOperationFilter
     1. original source should be the same (which means the ExtractSelection filter should preserve the topology to keep the original source and offer a "vtkInsidedness" field). If not, the implement should use a unordered_set to implement which cost a lot and is C++11 only.
-    1. the filter itself should have a preserve topology option as well.    
+    1. the filter itself should have a preserve topology option as well.
+- SelectedPointsRepresentation
+    1. When processed on certain source, it will simply filter the vtkInsidedness and show selected part.
+- Selection Toolbar (Considering)
+    1. Add quick access to use selection operation filter
+    1. Add button to merge original selections of selectionOperationFilter/ExtractSelectionFilter by one level. (Call it 'Merge Up')
 
 # Others
 - Add data field palette presets like MATLAB, add random (hash with given seed) palette by integers (not gradient platte).
@@ -76,7 +75,8 @@
 1. [Feature]add "intersection" selection modifier
 1. [Issue]add toggle button to set `UseMultipleRepresentationSelection` property in `pqRenderView`.【should be easy to implement】
 1. [Issue]if object is invisible, then updating the object will not trigger update in statics inspector. 
-1. [Issue]AddFieldArray should be able to add a field by user assign, not just by reading file. (Is there another easy way to add a field?)
+1. [Issue]`AddFieldArray` should be able to add a field by user assign, not just by reading file. (Is there another easy way to add a field?)
 1. [Feature]Add boolean operation filter (there is a implementation in VTK, just port it to ParaView)
 1. Add icons to sources, and add interactive constuction of basic sources (box, cylinder, etc), just like what Clip filter does.
-
+1. [Feature]Add `GridSource`
+1. [Feature]Offer option for select `VTK_POINT_SHELL`/`VTK_POINT_UNIFORM` in `Points` source

@@ -1,0 +1,22 @@
+<ServerManagerConfiguration>
+  <ProxyGroup name="filters">
+    <SourceProxy class="vtkOutputDisplayerFilter"
+                 label="Output Displayer"
+                 name="OutputDisplayer">
+      <Documentation long_help="Show filter output information."
+                     short_help="Show filter output information."/>
+      <InputProperty command="AddInputConnection"
+                     multiple_input="1"
+                     name="Input">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources" />
+          <Group name="filters" />
+        </ProxyGroupDomain>
+        <DataTypeDomain composite_data_supported="1"
+                        name="input_type">
+          <DataType value="vtkDataObject" />
+        </DataTypeDomain>
+      </InputProperty>
+    </SourceProxy>
+  </ProxyGroup>
+</ServerManagerConfiguration>

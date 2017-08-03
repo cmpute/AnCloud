@@ -74,6 +74,7 @@
 #define VTK_AOS_DATA_ARRAY_TEMPLATE_INSTANTIATING
 #include <vtkAbstractArray.h>
 #include <vtkAOSDataArrayTemplate.h>
+#include <vtkCellArray.h>
 #include <vtkDataArrayTemplate.h>
 #include <vtkSetGet.h>
 #include <vtkPointData.h>
@@ -393,7 +394,7 @@ unsigned int PCDReaderRaw::readHeader (const char *file_name, int &data_type, st
 	acTemplateMacroCase(VTK_TYPE_INT8, call);		\
 	acTemplateMacroCase(VTK_TYPE_UINT8, call)		\
 
-vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name, const int offset)
+vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name, std::function<void(double)> progress, const int offset)
 {
 	int data_type;
 	unsigned int data_idx;
@@ -504,6 +505,7 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 					toff += fields[d].count; // jump over this many elements in the string token
 				}
 				idx++;
+				progress(static_cast<double>(idx) / nr_points);
 			}
 		}
 		catch (const char *exception)
@@ -640,6 +642,7 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 					}
 				}
 				bufptr += fields[d].count * fields[d].size * nr_points;
+				progress(static_cast<double>(d) / fields.size());
 			}
 
 			free(buf);
@@ -687,6 +690,7 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 					}
 				}
 				toff += fields[d].count * fields[d].size;
+				progress(static_cast<double>(d) / fields.size());
 			}
 		}
 
@@ -755,18 +759,12 @@ vtkSmartPointer<vtkPointCloudType> PCDReaderRaw::readFile(const char *file_name,
 	}
 	pointSet->SetPoints(points);
 
-	//Add point vertices
-	vtkSmartPointer<vtkIdTypeArray> cells = vtkIdTypeArray::New();
-	cells->SetNumberOfValues(nr_points * 2);
-	vtkIdType* ids = cells->GetPointer(0);
-	for (vtkIdType i = 0; i < nr_points; ++i)
-	{
-		ids[i * 2] = 1;
-		ids[i * 2 + 1] = i;
-	}
-
+	//Add cell
 	vtkSmartPointer<vtkCellArray> cellArray = vtkSmartPointer<vtkCellArray>::New();
-	cellArray->SetCells(nr_points, cells.GetPointer());
+	cellArray->Allocate(cellArray->EstimateSize(1, nr_points));
+	cellArray->InsertNextCell(nr_points);
+	for (unsigned int i = 0; i < nr_points; i++)
+		cellArray->InsertCellPoint(i);
 	pointSet->SetVerts(cellArray);
 
 	return pointSet;

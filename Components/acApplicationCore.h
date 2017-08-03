@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <QPointer>
 
+/* Provide functions in addition to pqApplicationCore */
 class acApplicationCore : public QObject
 {
     Q_OBJECT
