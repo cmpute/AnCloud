@@ -195,6 +195,8 @@ source_group("ThirdParty" FILES
 # Import Plugin
 add_subdirectory(Plugins/PCDReader)
 include_directories(Plugins/PCDReader)
+add_subdirectory(Plugins/SelectionExtension)
+include_directories(Plugins/SelectionExtension)
 add_subdirectory(Plugins/Debug)
 include_directories(Plugins/Debug)
 

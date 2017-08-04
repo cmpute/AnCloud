@@ -1,5 +1,52 @@
 <ServerManagerConfiguration>
   <ProxyGroup name="filters">
-
+    <!-- ==================================================================== -->
+    <SourceProxy class="vtkSelectionOperationFilter"
+                 label="Selections Operation"
+                 name="SelectionsOperation">
+      <Documentation long_help="Perform selection operation on input data sets."
+                     short_help="Perform selection operation">
+                     Perform selection operation on input data sets.
+                     The selection operations include Merge, Subtract, Intersection,
+                     Toggle</Documentation>
+      <InputProperty name="Input"
+                     command="AddInputConnection"
+                     clean_command="RemoveAllInputs"
+                     multiple_input="1">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources" />
+          <Group name="filters" />
+        </ProxyGroupDomain>
+        <DataTypeDomain name="input_type">
+                        <!-- composite_data_supported="1"> -->
+          <DataType value="vtkDataSet" />
+        </DataTypeDomain>
+        <Documentation>This property indicates the the inputs to the selection operation
+        filter.</Documentation>
+      </InputProperty>
+      <IntVectorProperty name="Operation"
+                         command="SetOperation"
+                         number_of_elements="1"
+                         default_values="0">
+        <EnumerationDomain name="enum">
+          <Entry value="0" text="Merge"/>
+          <Entry value="1" text="Subtract"/>
+          <Entry value="2" text="Intersection"/>
+          <Entry value="3" text="Toggle"/>
+        </EnumerationDomain>
+        <Documentation>This property indicates which operation will be used.</Documentation>
+      </IntVectorProperty>
+      <IntVectorProperty name="PreserveTopology"
+                         default_values="0"
+                         command="SetPreserveTopology"
+                         number_of_elements="1">
+        <BooleanDomain name="bool" />
+        <Documentation>If this property is set to 1 the output preserves the
+        topology of its input and insidedness array is preserved. If 0 then the output
+        is an unstructured grid which contains only the subset of cells that are inside.
+        </Documentation>
+      </IntVectorProperty>
+    </SourceProxy>
+    <!-- End GroupDataSets -->
   </ProxyGroup>
 </ServerManagerConfiguration>

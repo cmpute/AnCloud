@@ -1,5 +1,5 @@
 #include "acSelectionToolbar.h"
-#include "acApplicationCore.h"
+#include "Components/acApplicationCore.h"
 
 #include <pqActiveObjects.h>
 #include <pqRenderView.h>

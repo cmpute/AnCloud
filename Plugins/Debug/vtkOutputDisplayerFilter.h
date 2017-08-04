@@ -25,7 +25,7 @@ protected:
         vtkInformationVector **,
         vtkInformationVector *) VTK_OVERRIDE;
              
-    // int FillOutputPortInformation(int port, vtkInformation *info) VTK_OVERRIDE;
+    int FillInputPortInformation(int port, vtkInformation *info) VTK_OVERRIDE;
  
 private:
 	vtkOutputDisplayerFilter(const vtkOutputDisplayerFilter&) VTK_DELETE_FUNCTION;
