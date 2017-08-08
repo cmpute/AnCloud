@@ -1,6 +1,8 @@
 #ifndef acApplicationCore_h
 #define acApplicationCore_h
 
+#include "Core/acSelectionManager.h"
+
 #include <pqApplicationCore.h>
 
 #include <QMainWindow>
@@ -24,7 +26,8 @@ private:
 
     Q_DISABLE_COPY(acApplicationCore)
 
-    static QMainWindow* mainWindow;
+    static QMainWindow *mainWindow;
+	acSelectionManager *selectionManager;
 };
 
 #endif // acApplicationCore_h

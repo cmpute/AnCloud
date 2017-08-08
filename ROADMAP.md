@@ -2,7 +2,7 @@
 ## Docks
 - Selection View (TreeView) (Source View included)
     - Object : Display the Affiliation between sources and segments / among segments
-    - Root items are Source1, Source2, .., Cross-Segment1, CroCross-Segment2, ...(whose points from multiple sources)
+    - Root items are Source1, Source2, .., Cross-Segment1, Cross-Segment2, ...(whose points from multiple sources)
     - If all of points from a segment belong to a single source, then the segment belong to the source
     - Every selection should, if it has a child selection, contains a remainder selection which contains points that has not been selected. If the selection is covered by all children, then the remainder disappear.
     - Selection icons include: Source, unlabelled selection, labelled selection, unlabelled cross-selection, labelled cross-selection, remainder.
@@ -57,10 +57,11 @@
 - Frequently used keys should be assigned to single key, like selection buttons, selection modifier buttons, etc.
 
 # Plugins
+## PCD Reader
+- Add special handling for "rgb"/"rgba" and "normal" fields.
 ## Selection Plugin
-- SelectionOperationFilter (MergeSelection/IntersectSelection/ToggleSelection)
-    1. original source should be the same (which means the ExtractSelection filter should preserve the topology to keep the original source and offer a "vtkInsidedness" field). If not, the implement should use a unordered_set to implement which cost a lot and is C++11 only.
-    1. the filter itself should have a preserve topology option as well.
+- SelectionOperationFilter
+    1. Very not stable, crashed when dealing with point cloud, should test more.
 - SelectedPointsRepresentation
     1. When processed on certain source, it will simply filter the vtkInsidedness and show selected part.
 - Selection Toolbar (Considering)

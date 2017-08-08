@@ -2,13 +2,16 @@
 #include "acComponentsInit.h"
 
 #include <QApplication>
+#include <QDebug>
 
 acApplicationCore::acApplicationCore(QObject* parent)
     : Superclass(parent)
 {
     // Initialize AnCloud resources
     acComponentsInit();
+	qDebug() << "acApplicationCore Initialized";
 
+	this->selectionManager = new acSelectionManager();
 }
 
 acApplicationCore::~acApplicationCore()

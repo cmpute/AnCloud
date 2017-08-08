@@ -1,5 +1,6 @@
 #include "acMainWindow.h"
 #include "ui_acMainWindow.h"
+#include "acApplicationCore.h"
 
 #include <pqActiveObjects.h>
 #include <pqApplicationCore.h>
@@ -52,6 +53,9 @@ acMainWindow::acMainWindow(QWidget *parent) :
     this->Ui->setupUi(this);
 	this->paraviewInit();
 	PV_PLUGIN_IMPORT(PCDReader);
+
+	// Instantiate acApplicationCore
+	acApplicationCore *core = acApplicationCore::instance();
 
     this->setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::North);
 	this->tabifyDockWidget(this->Ui->selectionViewDock, this->Ui->labelViewDock);

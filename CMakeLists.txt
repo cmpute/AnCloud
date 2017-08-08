@@ -40,12 +40,17 @@ set(SRC_FILES
   Components/Toolbars/acMainToolbar.cxx
   Components/Toolbars/acSelectionToolbar.cxx
   Components/Widgets/acLabelViewWidget.cxx
+  Components/Widgets/acSelectionBrowserWidget.cxx
   Components/Widgets/acSelectionInfoWidget.cxx
+  Components/Widgets/acSelectionModel.cxx
   Components/Widgets/acSelectionViewWidget.cxx
   Components/acApplicationCore.cxx
   Components/acComponentsInit.cxx
   Components/acMainWindow.cxx
   Components/acMenuBuilders.cxx
+  Components/acSelectionAdaptor.cxx
+  Core/acSelectionManager.cxx
+  Reactions/acDeleteReaction.cxx
   Reactions/acLoadDataReaction.cxx
   Reactions/acReaction.cxx
   Reactions/acSaveDataReaction.cxx
@@ -55,6 +60,7 @@ set(SRC_FILES
 set(HDR_FILES
   Components/acComponentsInit.h
   Components/acMenuBuilders.h
+  Core/acSelectionManager.h
 )
 
 set(MOC_HDRS_FILES
@@ -62,10 +68,14 @@ set(MOC_HDRS_FILES
   Components/Toolbars/acMainToolbar.h
   Components/Toolbars/acSelectionToolbar.h
   Components/Widgets/acLabelViewWidget.h
+  Components/Widgets/acSelectionBrowserWidget.h
   Components/Widgets/acSelectionInfoWidget.h
+  Components/Widgets/acSelectionModel.h
   Components/Widgets/acSelectionViewWidget.h
   Components/acApplicationCore.h
   Components/acMainWindow.h
+  Components/acSelectionAdaptor.h
+  Reactions/acDeleteReaction.h
   Reactions/acLoadDataReaction.h
   Reactions/acReaction.h
   Reactions/acSaveDataReaction.h

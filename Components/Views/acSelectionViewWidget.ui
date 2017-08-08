@@ -10,9 +10,6 @@
     <height>300</height>
    </rect>
   </property>
-  <!-- <property name="focusPolicy">
-   <enum>Qt::ClickFocus</enum>
-  </property> -->
   <property name="windowTitle">
    <string>Selection Operation</string>
   </property>
@@ -82,10 +79,17 @@
     </widget>
    </item>
    <item>
-    <widget class="QTreeView" name="selectionView"/>
+    <widget class="acSelectionBrowserWidget" name="selectionView"/>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>acSelectionBrowserWidget</class>
+   <extends>QTreeView</extends>
+   <header>Components/Widgets/acSelectionBrowserWidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../../Resources/acIcons.qrc"/>
  </resources>
